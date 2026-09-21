@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>GameWorld</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast"></div>
+
+<header>
+  <div class="brand">
+    <div class="logo">👑</div>
+    <div><b>GameWorld</b><small>PLAY • COMPETE • WIN</small></div>
+  </div>
+  <button class="iconBtn" onclick="show('profile')">👤</button>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="heroText">
+      <span>WELCOME BACK 👋</span>
+      <h1>آماده‌ای بازی کنی؟</h1>
+      <p>بازی کن، XP بگیر و رکورد خودت را بهتر کن.</p>
+      <button class="primary" onclick="quickPlay()">⚡ بازی سریع</button>
+    </div>
+    <div class="level"><small>LEVEL</small><strong id="level">1</strong></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><span>⭐</span><small>XP</small><b id="xp">0</b></div>
+    <div class="stat-card"><span>🔥</span><small>Streak</small><b id="streak">0</b></div>
+    <div class="stat-card"><span>🏆</span><small>Wins</small><b id="wins">0</b></div>
+    <div class="stat-card"><span>⚔️</span><small>Rating</small><b id="rating">1000</b></div>
+  </div>
+
+  <div class="sectionTitle"><h2>🎯 Daily Challenge</h2><span>امروز</span></div>
+  <div class="mission">
+    <div class="missionIcon">⚡</div>
+    <div class="grow">
+      <b>یک بازی انجام بده</b><p>اولین بازی امروز را کامل کن.</p>
+      <div class="bar"><i id="missionBar"></i></div>
+    </div>
+    <strong>+100 XP</strong>
+  </div>
+
+  <div class="sectionTitle"><h2>🔥 پیشنهاد امروز</h2><button onclick="show('games')">همه</button></div>
+  <div class="game featured">
+    <div class="gameIcon">⚡</div>
+    <div class="grow"><h3>Reaction Rush</h3><p>ببین چقدر سریع واکنش نشان می‌دهی.</p><small>⚡ 60 ثانیه · 👤 یک نفره</small></div>
+    <button onclick="startGame('reaction')">PLAY</button>
+  </div>
+</section>
+
+<section id="games" class="page">
+  <div class="heading"><span>GAME CENTER</span><h1>🎮 بازی‌ها</h1><p>یک بازی انتخاب کن و شروع کن.</p></div>
+  <div class="chips"><button class="selected">همه</button><button>⚡ Speed</button><button>🧠 Brain</button><button>🏆 Competitive</button></div>
+  <div class="games">
+    <div class="game"><div class="gameIcon">⚡</div><div class="grow"><h3>Reaction Rush</h3><p>سریع باش.</p><small>⚡ 60 sec · 👤 1</small></div><button onclick="startGame('reaction')">PLAY</button></div>
+    <div class="game"><div class="gameIcon">🧠</div><div class="grow"><h3>Memory Grid</h3><p>حافظه‌ات را آزمایش کن.</p><small>🧠 90 sec · 👤 1</small></div><button onclick="startGame('memory')">PLAY</button></div>
+    <div class="game"><div class="gameIcon">🔢</div><div class="grow"><h3>Number Rush</h3><p>عدد درست را پیدا کن.</p><small>⚡ 60 sec · 👤 1</small></div><button onclick="startGame('number')">PLAY</button></div>
+    <div class="game"><div class="gameIcon">🏆</div><div class="grow"><h3>Quiz Battle</h3><p>برای رقابت آماده‌ای؟</p><small>⚔️ 1v1 · 🌐 Online</small></div><button onclick="openOnline()">PLAY</button></div>
+  </div>
+</section>
+
+<section id="rank" class="page">
+  <div class="heading"><span>LEADERBOARD</span><h1>🏆 رتبه‌بندی</h1><p>امتیازت را بالا ببر.</p></div>
+  <div class="rankTabs"><button class="selected">XP</button><button>Rating</button><button>Wins</button><button>Streak</button></div>
+  <div class="leader">
+    <div><b>🥇</b><span>Shadow</span><strong>12,840</strong></div>
+    <div><b>🥈</b><span>Nova</span><strong>11,420</strong></div>
+    <div><b>🥉</b><span>Player One</span><strong>10,950</strong></div>
+    <div class="you"><b>#14</b><span>شما</span><strong id="rankXP">0</strong></div>
+  </div>
+</section>
+
+<section id="profile" class="page">
+  <div class="profile">
+    <div class="avatar">👤</div><h1>Player</h1><p>LEVEL <b id="profileLevel">1</b></p>
+    <div class="bar big"><i id="xpBar"></i></div><strong><span id="profileXP">0</span> XP</strong>
+  </div>
+  <div class="profileStats">
+    <div><small>Games</small><b id="gamesPlayed">0</b></div>
+    <div><small>Wins</small><b id="profileWins">0</b></div>
+    <div><small>Rating</small><b id="profileRating">1000</b></div>
+  </div>
+  <div class="achievement"><h2>🏅 Achievements</h2><div class="badges"><span>⚡</span><span>🏆</span><span>🔥</span></div></div>
+</section>
+
+<section id="play" class="page">
+  <button class="back" onclick="show('games')">← برگشت</button>
+  <div id="gameArea"></div>
+</section>
+
+<section id="online" class="page">
+  <div class="heading"><span>ONLINE</span><h1>⚔️ بازی آنلاین</h1><p>یک Room بساز یا با کد وارد شو.</p></div>
+  <input id="playerName" placeholder="نام بازیکن">
+  <button class="primary full" onclick="createRoom()">➕ ساخت Room</button>
+  <div class="join"><input id="roomCode" placeholder="کد Room"><button onclick="joinRoom()">JOIN</button></div>
+  <div id="roomInfo" class="roomInfo"></div>
+</section>
+</main>
+
+<nav>
+<button class="navActive" onclick="show('home')">🏠<small>خانه</small></button>
+<button onclick="show('games')">🎮<small>بازی</small></button>
+<button onclick="show('rank')">🏆<small>رتبه</small></button>
+<button onclick="show('profile')">👤<small>پروفایل</small></button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
