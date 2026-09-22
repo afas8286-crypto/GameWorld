@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#101426" />
+<title>GameWorld | Pet Arena Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="toast" class="toast" aria-live="polite"></div>
+<div class="app-shell">
+  <header class="topbar glass">
+    <div class="brand-wrap"><div class="brand-mark">GW</div><div><div class="brand">GameWorld</div><div class="subtitle">Pet • Arena • Hub</div></div></div>
+    <div class="top-actions"><button id="bankBtn" class="icon-btn" title="بانک">🪙 <span id="coinBalance">1250</span></button><button id="profileBtn" class="icon-btn">👤</button></div>
+  </header>
+
+  <main>
+    <section class="hero-grid">
+      <div class="hero-card glass">
+        <div class="hero-copy"><span class="eyebrow">مرکز فرماندهی تو</span><h1>هر روز یک نبرد، هر بار یک داستان.</h1><p>پتت را رشد بده، تجهیزات 3D بپوشان، وارد آرنا شو و جایگاهت را در Top 20 بالا ببر.</p>
+          <div class="hero-cta"><button id="arenaBtn" class="primary-btn">⚔️ ورود به آرنا</button><button id="spinBtn" class="secondary-btn">🎡 اسپین روزانه</button></div>
+          <div class="stat-row"><div><strong id="ageStat">67</strong><span>Age</span></div><div><strong id="winStat">24</strong><span>برد</span></div><div><strong id="streakStat">5</strong><span>استریک</span></div></div>
+        </div>
+        <div class="pet-stage" id="petStage"><div class="pet-aura"></div><div class="pet-orb">🐲</div><div class="pet-name" id="petName">Draco</div><div class="pet-mood" id="petMood">مود: آماده‌ی نبرد</div></div>
+      </div>
+      <div class="quick-panel glass"><div class="panel-head"><h2>اتفاق‌های امروز</h2><button id="surpriseBtn" class="tiny-btn">🎁</button></div><div class="event-list" id="eventList"></div><div class="section-foot"><span>رویداد ماهانه</span><strong id="eventCountdown">12 روز</strong></div></div>
+    </section>
+
+    <section class="section"><div class="section-head"><div><span class="eyebrow">زندگی پت</span><h2>پت‌ها</h2></div><button class="text-btn" data-open="pets">مشاهده همه</button></div><div id="petGrid" class="pet-grid"></div></section>
+
+    <section class="section"><div class="section-head"><div><span class="eyebrow">پیشرفت</span><h2>ماموریت‌های ضدتکرار</h2></div><button class="text-btn" data-open="missions">همه ماموریت‌ها</button></div><div id="missionGrid" class="mission-grid"></div></section>
+
+    <section class="section"><div class="section-head"><div><span class="eyebrow">ویژگی‌های اصلی</span><h2>GameWorld Hub</h2></div></div><div id="featureGrid" class="feature-grid"></div></section>
+
+    <section class="section"><div class="section-head"><div><span class="eyebrow">بازی سریع</span><h2>بازی‌ها</h2></div><button class="text-btn" data-open="games">همه بازی‌ها</button></div><div class="game-grid"><button class="game-card" data-game="truth"><span class="game-icon">🎭</span><strong>Truth or Dare</strong><small>سریع • دو نفره</small></button><button class="game-card" data-game="duel"><span class="game-icon">🃏</span><strong>Card Duel</strong><small>مهارت • شانس کنترل‌شده</small></button><button class="game-card" data-game="memory"><span class="game-icon">🧠</span><strong>Memory Rush</strong><small>تمرکز • رکوردی</small></button><button class="game-card" data-game="runner"><span class="game-icon">⚡</span><strong>Pet Runner</strong><small>بی‌وقفه • ضد تکرار</small></button></div></section>
+
+    <section class="section"><div class="section-head"><div><span class="eyebrow">رقابت جهانی</span><h2>Top 20</h2></div><button class="text-btn" data-open="ranking">جدول کامل</button></div><div id="leaderboard" class="leaderboard"></div></section>
+  </main>
+
+  <nav class="bottom-nav glass"><button class="nav-btn active" data-open="home">⌂<span>خانه</span></button><button class="nav-btn" data-open="arena">⚔️<span>آرنا</span></button><button class="nav-btn" data-open="shop">🛍️<span>فروشگاه</span></button><button class="nav-btn" data-open="collection">🗂️<span>کلکسیون</span></button><button class="nav-btn" data-open="friends">👥<span>دوستان</span></button></nav>
+</div>
+
+<div id="modalRoot" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal glass" role="dialog" aria-modal="true"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
